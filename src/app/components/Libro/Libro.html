@@ -1,0 +1,28 @@
+<section>
+	<h1>Libros</h1>	
+	<table class="table table-bordered table-hover" style="width: 80%; margin-left: 10%;">
+		<thead>
+			<tr>
+				<th>Rut</th>
+				<th>Nombre</th>
+				<th>Apellido</th>
+				<th>Telefono</th>
+				<th>Acción</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="libro in vm.libros">
+				<td> {{ libro.titulo }} </td>
+				<td> {{ libro.anno }} </td>
+				<td> {{ libro.autor_id }} </td>
+				<td> {{ libro.genero_id }} </td>
+				<td>
+					<button class="btn btn-danger">Eliminar</button>
+					<!-- <a ui-sref="verPelicula({id: pelicula.id})">ver</a>
+					<a ui-sref="">actualizar</a>
+					<a ui-sref="">eliminar</a> -->
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</section>

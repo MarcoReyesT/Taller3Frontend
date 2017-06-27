@@ -1,0 +1,33 @@
+<section>
+	<h1>Ejemplares prestados</h1>
+
+	<table class="table table-bordered table-hover" style="width: 80%; margin-left: 10%;">
+		<thead>
+			<tr>
+				<th>Libro</th>
+				<th>Estado</th>
+				<th>Usuario</th>
+				<th>Fecha prestamo</th>
+				<th>Fecha devolucion</th>
+				<th>Acciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="ejemplar in vm.ejemplares">
+				<td> {{ ejemplar.libro_id }} </td>
+				<td> {{ ejemplar.estado_id }} </td>
+				<td> {{ ejemplar.usuario_id }} </td>
+				<td> {{ ejemplar.fecha_prestamo }} </td>
+				<td> {{ ejemplar.fecha_devolucion }} </td>
+				<td>
+					<button class="btn btn-danger">Devolver</button>
+					<a ui-sref="verEjemplar({id: ejemplar.id})" class="btn btn-danger">Ver Ejemplar</a>
+					<a ui-sref="actualizarEjemplar({id: ejemplar.id})" class="btn btn-danger">Actualizar Ejemplar</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<br>
+
+	<a ui-sref="crearEjemplar" class="btn btn-danger" style="width: 30%; margin-left: 10%;">Prestar libro</a>
+</section>

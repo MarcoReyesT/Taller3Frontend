@@ -1,0 +1,43 @@
+<form ng-submit="vm.semanticAction(vm.ejemplarForm)">
+	<legend ng-if="vm.location === 'store'">Crear ejemplar</legend>
+	<legend ng-if="vm.location === 'view'">Ver ejemplar</legend>
+	<legend ng-if="vm.location === 'update'">Actualizar ejemplar</legend>
+
+	<div class="form-group">
+		<label>Libro</label>
+		<select ng-if="vm.location === 'store'" ng-model="vm.ejemplarForm.libro_id" class="form-control" ng-options="libro as libro.titulo for libro in vm.libros"></select>
+		<input ng-if="vm.location === 'view'" ng-model="vm.ejemplarForm.libro_id" class="form-control" ng-options="libro as libro.titulo for libro in vm.libros" disabled=""></input>
+	</div>
+
+
+	<div class="form-group">
+		<label>Estado</label>
+		<select ng-if="vm.location === 'store'" ng-model="vm.ejemplarForm.estado_id" class="form-control" ng-options="estado as estado.descripcion for estado in vm.estados"></select>
+		<input ng-if="vm.location === 'view'" ng-model="vm.ejemplarForm.estado_id" class="form-control" ng-options="estado as estado.descripcion for estado in vm.estados" disabled=""></input>
+	</div>
+
+
+	<div class="form-group">
+		<label>Fecha Prestamo</label>
+		<input ng-if="vm.location === 'store'" ng-model="vm.ejemplarForm.fecha_prestamo" type="date" class="form-control">
+		<input ng-if="vm.location === 'view'" ng-model="vm.ejemplarForm.fecha_prestamo" class="form-control" disabled=""></input>
+	</div>
+
+
+	<div class="form-group">
+		<label>Fecha Devolucion</label>
+		<input ng-if="vm.location === 'store'" ng-model="vm.ejemplarForm.fecha_devolucion" type="date" class="form-control">
+		<input ng-if="vm.location === 'view'" ng-model="vm.ejemplarForm.fecha_devolucion" class="form-control" disabled=""></input>
+	</div>
+
+
+	<div class="form-group">
+		<label>Usuario</label>
+		<select ng-if="vm.location === 'store'" ng-model="vm.ejemplarForm.usuario_id" class="form-control" ng-options="usuario as usuario.nombre for usuario in vm.usuarios"></select>
+		<input ng-if="vm.location === 'view'" ng-model="vm.ejemplarForm.usuario_id" class="form-control" ng-options="usuario as usuario.nombre for usuario in vm.usuarios" disabled=""></input>
+	</div>
+
+	<a ui-sref="ejemplar" class="btn btn-default">Volver</a>
+	<button ng-if="vm.location === 'store'" type="submit" class="btn btn-success">Guardar</button>
+	<button ng-if="vm.location === 'update'" type="submit" class="btn btn-danger">Actualizar</button>
+</form>
